@@ -10,15 +10,15 @@
             <div id="login-row" class="row justify-content-center align-items-center">
                 <div id="login-column" class="col-md-6">
                     <div id="login-box" class="col-md-12">
-                        <form id="login-form" class="form" action="Controller/processalogin.php" method="post">
+                        <form id="login-form" class="form" action="processacadastrologin.php" method="post">
                             <h3 class="text-center text-info">Dados para Registro</h3>
                             <div class="form-group">
-                                <label for="username" class="text-info">Username:</label><br>
-                                <input type="text" name="username" id="username" class="form-control">
+                                <label for="username" class="text-info">Usuario:</label><br>
+                                <input type="text" name="usuario"  class="form-control">
                             </div>
                             <div class="form-group">
-                                <label for="password" class="text-info">Password:</label><br>
-                                <input type="text" name="password" id="password" class="form-control">
+                                <label for="password" class="text-info">Senha:</label><br>
+                                <input type="text" name="senha" class="form-control">
                             </div>
                             <div class="form-group">
                                 <a href="login.php" class="btn btn-info btn-md">Voltar</a>

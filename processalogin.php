@@ -20,16 +20,20 @@ foreach( $users as $user){
 
 }
   
- if($users != NULL){
+ if($users!= NULL){
     //crias as 
     session_start();
     $_SESSION['login_usuario']=$usuario;
     $_SESSION['senha']=$senha;
+
+   
     header("Location:admin.php");
     
  }else{
+
    $_SESSION['mensagem']="Senha ou usuário incorreto !";
-    header("Location:login.php");
+   echo " não conectou";
+    //header("Location:login.php");
  }
 
 
