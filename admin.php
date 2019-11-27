@@ -29,7 +29,7 @@ include_once("seguranca.php");
     <span class="navbar-text">
     <div class="btn-group">
   <a type="text" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
-  <?php echo$_SESSION['login_usuario'];?>  <img src="img/user.png" alt="..." class="rounded-pill">
+  <?php echo$_SESSION['login_usuario'];?>  <img src="images/user.png" alt="..." class="rounded-pill">
 </a>
   <div class="dropdown-menu dropdown-menu-lg-right">
   <button type="button" class="dropdown-item" data-toggle="modal" data-target=".bd-example-modal-lg">Perfil</button>
@@ -59,21 +59,13 @@ include_once("seguranca.php");
 <table class="table table-striped table-responsive-xl">
   <thead>
     <tr>
-      <th scope="col">Numero</th>
-      <th scope="col">Nome Onibus</th>
-      <th scope="col">Paradas</th>
+      <th scope="col">Numero indentificação</th>
+      <th scope="col">Nome do Onibus</th>
+      <th scope="col">Local de Parada</th>
       
     </tr>
   </thead>
   <tbody>
-    <!--<tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-    </tr>-->
-    
   </tbody>
 </table>
 <?php
@@ -94,7 +86,9 @@ if($acao){
   $stmt->execute();
 $resultado = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-if(empty($resultado)) echo" <b>não encontrou resultado<b>";
+if(empty($resultado)) echo' <div class="text-center">
+<p> Registro não encontrado .</p>
+</div>';
 foreach( $resultado as $resul){
 ?>
 <tr>
