@@ -62,19 +62,22 @@ include_once("seguranca.php");
       <th scope="col">Numero indentificação</th>
       <th scope="col">Nome do Onibus</th>
       <th scope="col">Local de Parada</th>
+      <th scope="col">Latitude</th>
+      <th scope="col">Longetude</th>
       
     </tr>
   </thead>
   <tbody>
-  </tbody>
-</table>
+  
 <?php
 $acao = filter_input(INPUT_POST,'acao',FILTER_SANITIZE_STRING);
 if($acao){
   include_once("conexao.php");
+  ini_set('memory_limit', '5000m');
+    
   $pesquisa = filter_input(INPUT_POST,'pesquisa', FILTER_SANITIZE_STRING);
  
-  $sql ="SELECT route_short_name,route_long_name ,stop_name
+  $sql ="SELECT route_short_name,route_long_name ,stop_name,stop_lat,stop_lon
   FROM routes r INNER JOIN trips t on r.route_id=r.route_id 
   INNER JOIN stop_times s on t.trip_id=s.trip_id
   INNER JOIN stop sp on s.stop_id=sp.stop_id WHERE route_id = :pesquisar";
@@ -95,24 +98,19 @@ foreach( $resultado as $resul){
       <td><?=$resul['route_short_name']?></td>
       <td><?=$resul['route_long_name']?></td>
       <td><?=$resul['stop_name']?></td>
+      <td><?=$resul['stop_lat']?></td>
+      <td><?=$resul['stop_lon']?></td>
       
     </tr>
-
+   
 
  <?php
+
 }
-
-
-
-
-
-
-
-
-
-
 }
 ?>
+ </tbody>
+</table>
 </div>
 <!-- janela modal -->
 <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
